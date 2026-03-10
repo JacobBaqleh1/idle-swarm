@@ -1,0 +1,276 @@
+/* ===== Reset & base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #0f0f0f;
+  color: #d4d4d4;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* Header & settings icon */
+#game-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding:12px 16px
+}
+#game-settings-btn {
+  margin-left:auto;
+  background: transparent;
+  border: none;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #cfcfcf;
+  border-radius: 6px;
+}
+#game-settings-btn:hover {
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+}
+#game-settings { display: block; }
+#game-settings path { color: inherit; }
+
+/* ===== Resource bar ===== */
+#resource-bar {
+  background: #1a1a1a;
+  border-bottom: 1px solid #2e2e2e;
+  padding: 8px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.res-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #252525;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+.res-label {
+  color: #888;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.res-value {
+  color: #e8c86e;
+  font-weight: 600;
+  min-width: 2ch;
+}
+
+/* ===== Tab nav ===== */
+#tab-nav {
+  background: #141414;
+  border-bottom: 1px solid #2e2e2e;
+  padding: 8px 16px;
+  display: flex;
+  gap: 6px;
+}
+
+.tab-btn {
+  background: #252525;
+  color: #aaa;
+  border: 1px solid #3a3a3a;
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tab-btn:hover {
+  background: #303030;
+  color: #ddd;
+}
+
+.tab-btn.active {
+  background: #4a7c3f;
+  color: #fff;
+  border-color: #5a9e4e;
+}
+
+/* ===== Tab content ===== */
+#tab-content {
+  flex: 1;
+  padding: 24px 16px;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.tab-pane h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #2e2e2e;
+  padding-bottom: 8px;
+}
+
+/* ===== Main tab ===== */
+.production-rate {
+  font-size: 15px;
+  color: #7ec87e;
+  margin-bottom: 16px;
+}
+
+.action-btn {
+  background: #3a6b30;
+  color: #fff;
+  border: 1px solid #4a8a3e;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.action-btn:hover {
+  background: #4a8a3e;
+}
+
+.action-btn:active {
+  background: #2e5526;
+}
+
+.hint {
+  color: #666;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* ===== Unit list ===== */
+#unit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.unit-row {
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.unit-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.unit-name {
+  font-weight: 600;
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+.unit-desc {
+  color: #777;
+  font-size: 12px;
+}
+
+.unit-count {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #e8c86e;
+}
+
+.unit-purchase {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.unit-cost {
+  font-size: 11px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.unit-buy-btn {
+  background: #3a6b30;
+  color: #fff;
+  border: 1px solid #4a8a3e;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.unit-buy-btn:hover:not(:disabled) {
+  background: #4a8a3e;
+}
+
+.unit-buy-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ===== Footer ===== */
+#game-footer {
+  background: #0f0f0f;
+  border-top: 1px solid #1e1e1e;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.danger-btn {
+  background: transparent;
+  color: #7a3030;
+  border: 1px solid #5a2020;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.danger-btn:hover {
+  background: #3a1010;
+  color: #d46060;
+}
