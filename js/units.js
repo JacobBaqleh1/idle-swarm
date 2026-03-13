@@ -28,7 +28,7 @@ const UNIT_COSTS = {
 function getUnitCost(unitKey) {
   const unit = state.units[unitKey];
   const baseCosts = UNIT_COSTS[unitKey];
-  const mult = Math.pow(unit.costMult, unit.count);
+  const mult = Math.pow(unit.costMult, unit.purchased);
   const scaled = {};
   for (const res in baseCosts) {
     scaled[res] = Math.ceil(baseCosts[res] * mult);
@@ -51,6 +51,7 @@ function buyUnit(unitKey) {
     state.resources[res] -= cost[res];
   }
   state.units[unitKey].count += 1;
+  state.units[unitKey].purchased += 1;
   return true;
 }
 
