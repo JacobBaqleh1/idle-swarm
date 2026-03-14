@@ -4,6 +4,7 @@ beforeEach(() => {
   // Reset larva state before each test
   global.state.units.larva.count = 0;
   global.state.resources.food = 0;
+  global.state.units.larva.purchased = 0;
 });
 
 describe('getUnitCost', () => {
@@ -12,13 +13,13 @@ describe('getUnitCost', () => {
   });
 
   test('scales cost by 1.15 per unit owned (ceiled)', () => {
-    global.state.units.larva.count = 1;
+    global.state.units.larva.purchased = 1;
     // ceil(10 * 1.15^1) = ceil(11.5) = 12
     expect(getUnitCost('larva')).toEqual({ food: 12 });
   });
 
   test('scales cost correctly at count 5', () => {
-    global.state.units.larva.count = 5;
+    global.state.units.larva.purchased = 5;
     const expected = Math.ceil(10 * Math.pow(1.15, 5));
     expect(getUnitCost('larva')).toEqual({ food: expected });
   });
